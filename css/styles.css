@@ -504,3 +504,8 @@ nav h1 a {
     width: 100%;
   }
 }
+
+.footer__full {
+  width: 100%;
+  position: relative;
+}
