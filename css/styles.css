@@ -402,6 +402,10 @@ nav h1 a {
   height: 50px;
   background-color: #3397DB;
   align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .filter-options h2 {
   color: white;
@@ -427,6 +431,7 @@ nav h1 a {
   background-color: #f3f3f3;
   list-style: outside none none;
   text-align: center;
+  width: 100%;
 }
 
 .restaurant__card {

@@ -20,20 +20,14 @@
       <div id="map"></div>
     </section>
     <section>
-      <div class="filter-options grid">
-        <div class="col">
-            <h2>Filter Results</h2>
-        </div>
-        <div class="col">
-          <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
-            <option value="all">All Neighborhoods</option>
-          </select>
-        </div>
-        <div class="col">
-          <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
-            <option value="all">All Cuisines</option>
-          </select>
-        </div>
+      <div class="filter-options">
+        <h2>Filter Results</h2>
+        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+          <option value="all">All Neighborhoods</option>
+        </select>
+        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+          <option value="all">All Cuisines</option>
+        </select>
       </div>
       <div class="container is-centered">
         <ul class="restaurants__list grid is-centered"></ul>
