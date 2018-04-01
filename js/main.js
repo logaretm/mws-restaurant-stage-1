@@ -1,4 +1,4 @@
-navigator.serviceWorker.register('sw.js');
+// navigator.serviceWorker.register('sw.js');
 
 
 let restaurants,
@@ -140,8 +140,7 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
-  li.className = 'col-2 col-xs-12 col-sm-3 restaurant__card';
-
+  li.className = 'restaurant__card';
 
   const image = document.createElement('img');
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
