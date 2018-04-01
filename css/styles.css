@@ -1,6 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
 
+body,
+html {
+  box-sizing: border-box;
+}
+
 body,td,th,p{
 	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 	font-size: 10pt;
@@ -50,6 +55,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   padding: 25px;
   text-align: center;
   text-transform: uppercase;
+  box-sizing: border-box;
 }
 
 
@@ -153,7 +159,6 @@ nav h1 a {
   list-style: outside none none;
   text-align: center;
   width: 100%;
-  box-sizing: border-box;
   display: flex;
   padding: 0;
   flex-wrap: wrap;
@@ -345,7 +350,6 @@ nav h1 a {
   width: 100%;
   background-color: #252831;
   color: #fff;
-  box-sizing: border-box;
 }
 
 .review__item__body {
