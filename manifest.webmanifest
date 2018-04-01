@@ -1,0 +1,8 @@
+{
+  "name": "Restaurant Reviews",
+  "short_name": "Restaurant Reviews",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Find Restaurants in your areas and what do people think about them."
+}
