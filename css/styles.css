@@ -211,11 +211,11 @@ nav h1 a {
 }
 
 .restaurant__card__body a {
-  background-color: orange;
+  background-color: #f18200;
   border-bottom: 3px solid #eee;
   color: #fff;
   display: inline-block;
-  font-size: 10pt;
+  font-size: 12pt;
   margin: 15px 0 0;
   padding: 8px 30px 10px;
   text-align: center;
@@ -356,7 +356,7 @@ nav h1 a {
 }
 
 .review__item__rating {
-  background-color: #ffa500;
+  background-color: #f18200;
   color: #fff;
   width: fit-content;
   font-size: 16px;
