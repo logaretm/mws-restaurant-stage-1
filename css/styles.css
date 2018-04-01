@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
+*,
 body,
 html {
   box-sizing: border-box;
@@ -336,9 +337,8 @@ nav h1 a {
   display: block;
   list-style-type: none;
   margin: 0 0 30px;
-  overflow: hidden;
   position: relative;
-  width: calc(100% - 80px);
+  width: 100%;
   border-radius: 25px 0;
 }
 
@@ -350,6 +350,7 @@ nav h1 a {
   width: 100%;
   background-color: #252831;
   color: #fff;
+  border-radius: 25px 0 0;
 }
 
 .review__item__body {
@@ -406,10 +407,6 @@ nav h1 a {
     max-width: 50%;
     margin-top: 0;
   }
-
-  .review__item {
-    width: calc(100% - 80px);
-  }
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
@@ -434,10 +431,6 @@ nav h1 a {
     flex-basis: 50%;
     max-width: 50%;
     margin-top: 0;
-  }
-
-  .review__item {
-    width: calc(100% - 80px);
   }
 }
 
