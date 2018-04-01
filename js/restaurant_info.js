@@ -1,3 +1,6 @@
+
+navigator.serviceWorker.register('sw.js');
+
 let restaurant;
 var map;
 
@@ -58,6 +61,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = `${restaurant.name} - ${restaurant.neighborhood}`;
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -96,6 +100,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.querySelector('.restaurant__reviews');
   const title = document.createElement('h2');
+  title.className = "restaurant__reviews__title";
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 

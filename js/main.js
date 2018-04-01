@@ -1,5 +1,4 @@
-// navigator.serviceWorker.register('sw.js');
-
+navigator.serviceWorker.register('sw.js');
 
 let restaurants,
   neighborhoods,
@@ -144,6 +143,7 @@ createRestaurantHTML = (restaurant) => {
 
   const image = document.createElement('img');
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = `${restaurant.name} - ${restaurant.neighborhood}`;
   li.append(image);
 
   const body = document.createElement('div');
