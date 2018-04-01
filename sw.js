@@ -27,6 +27,10 @@ function precache () {
 
 function fromCache (request) {
   return caches.open(`${CACHE_NAME}_${VERSION}`).then(function (cache) {
+    if (/restaurant\.html/.test(request.url)) {
+      request = new Request('/restaurant.html');
+    }
+
     return cache.match(request).then(function (matching) {
       return matching || fromNetwork(request);
     });
