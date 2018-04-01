@@ -112,7 +112,7 @@ updateRestaurants = () => {
 resetRestaurants = (restaurants) => {
   // Remove all restaurants
   self.restaurants = [];
-  const ul = document.getElementById('restaurants-list');
+  const ul = document.querySelector('.restaurants__list');
   ul.innerHTML = '';
 
   // Remove all map markers
@@ -125,7 +125,7 @@ resetRestaurants = (restaurants) => {
  * Create all restaurants HTML and add them to the webpage.
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
-  const ul = document.getElementById('restaurants-list');
+  const ul = document.querySelector('.restaurants__list');
   restaurants.forEach(restaurant => {
     ul.append(createRestaurantHTML(restaurant));
   });
@@ -137,32 +137,37 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
-  li.className = 'col-2 col-xs-12 col-sm-3';
+  li.className = 'col-2 col-xs-12 col-sm-3 restaurant__card';
 
 
   const image = document.createElement('img');
-  image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   li.append(image);
 
+  const body = document.createElement('div');
+  body.className = "restaurant__card__body";
+
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
-  li.append(name);
+  body.append(name);
 
   const neighborhood = document.createElement('p');
   neighborhood.innerHTML = restaurant.neighborhood;
-  li.append(neighborhood);
+  body.append(neighborhood);
 
   const address = document.createElement('p');
   address.innerHTML = restaurant.address;
-  li.append(address);
+  body.append(address);
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
-  li.append(more)
+  body.append(more)
 
-  return li
+
+  li.append(body);
+
+  return li;
 }
 
 /**
