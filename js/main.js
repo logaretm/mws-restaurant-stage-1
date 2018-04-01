@@ -1,3 +1,6 @@
+navigator.serviceWorker.register('sw.js');
+
+
 let restaurants,
   neighborhoods,
   cuisines
