@@ -2,16 +2,13 @@ const VERSION = 0.1;
 const CACHE_NAME = 'RESTAURANT_REVIEWS';
 
 self.addEventListener('install', (e) => {
-  console.log('The service worker is being installed.');
-
   // Cleanup old caches then precache the assets.
   e.waitUntil(cleanup().then(() => precache()));
 });
 
-self.addEventListener('fetch', function (evt) {
-  console.log('The service worker is serving the asset.');
-  evt.respondWith(fromCache(evt.request));
-  evt.waitUntil(fromNetwork(evt.request)); // update the cache.
+self.addEventListener('fetch', function (e) {
+  e.respondWith(fromCache(e.request));
+  e.waitUntil(fromNetwork(e.request)); // update the cache.
 });
 
 // Delete old caches.
@@ -31,11 +28,7 @@ function precache () {
 function fromCache (request) {
   return caches.open(`${CACHE_NAME}_${VERSION}`).then(function (cache) {
     return cache.match(request).then(function (matching) {
-      if (!matching) {
-        return fromNetwork(request);
-      }
-
-      return matching;
+      return matching || fromNetwork(request);
     });
   });
 }
@@ -44,9 +37,13 @@ function fromNetwork (request) {
   return caches.open(`${CACHE_NAME}_${VERSION}`).then(function (cache) {
     return fetch(request).then(function (response) {
       const cloned = response.clone();
-      return cache.put(request, cloned).then(() => {
-        return response;
-      });
+      if (response.ok) {
+        return cache.put(request, cloned).then(() => {
+          return response;
+        });
+      }
+
+      return response;
     });
   });
 }
