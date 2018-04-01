@@ -153,10 +153,9 @@ nav h1 a {
   list-style: outside none none;
   text-align: center;
   width: 100%;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
   box-sizing: border-box;
   display: flex;
+  padding: 0;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;

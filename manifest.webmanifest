@@ -4,5 +4,6 @@
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
+  "theme_color": "#fff",
   "description": "Find Restaurants in your areas and what do people think about them."
 }
