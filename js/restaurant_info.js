@@ -1,5 +1,7 @@
 
 navigator.serviceWorker.register('sw.js');
+const VERSION = 0.1;
+const CACHE_NAME = 'RESTAURANT_REVIEWS';
 
 let restaurant;
 var map;
@@ -11,16 +13,44 @@ window.initMap = () => {
   fetchRestaurantFromURL((error, restaurant) => {
     if (error) { // Got an error!
       console.error(error);
+      return;
+    }
+
+    const mapEl = document.getElementById('map');
+
+    // couldn't fetch the js
+    if (typeof google === 'undefined') {
+      // return caches.open(`${CACHE_NAME}_${VERSION}`).then(function (cache) {
+      //   return cache.match(`/restaurant_${restaurant.id}_staticmap`).then(function (matching) {
+      //     if (!matching) return;
+
+      //     const img = document.createElement('img');
+      //     img.src = `/restaurant_${restaurant.id}_staticmap`;
+      //     img.alt = `${restaurant.name} - StaticMap`;
+
+      //     mapEl.appendChild(img);
+      //   });
+      // });
     } else {
-      self.map = new google.maps.Map(document.getElementById('map'), {
+      self.map = new google.maps.Map(mapEl, {
         zoom: 16,
         center: restaurant.latlng,
         scrollwheel: false
       });
-      fillBreadcrumb();
       DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
     }
-  });
+
+    fillBreadcrumb();
+
+    // TODO: Maybe fetch a static map image and cache it for offline usage.
+  //   if (!navigator.serviceWorker.controller) {
+  //     return;
+  //   }
+  //   navigator.serviceWorker.controller.postMessage({
+  //     action: 'staticmap',
+  //     restaurant
+  //   });
+  // });
 }
 
 /**

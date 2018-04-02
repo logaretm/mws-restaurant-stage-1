@@ -19,8 +19,13 @@ function cleanup () {
 function precache () {
   return caches.open(`${CACHE_NAME}_${VERSION}`).then(function (cache) {
     return cache.addAll([
+      './manifest.webmanifest',
       './index.html',
-      './restaurant.html'
+      './restaurant.html',
+      './js/main.js',
+      './js/dbhelper.js',
+      './css/styles.css',
+      './data/restaurants.json'
     ]);
   });
 }
@@ -48,6 +53,29 @@ function fromNetwork (request) {
       }
 
       return response;
+    }).catch(err => {
+      console.log(err);
+      return null;
     });
   });
 }
+
+
+function cacheStaticMap (restaurant) {
+  const location = `${restaurant.latlng.lat},${restaurant.latlng.lng}`;
+  const params = `center=${location}&zoom=16&size=640x640&scale=2&markers=markerStyles|${location}`;
+
+  return fetch(`https://maps.googleapis.com/maps/api/staticmap?${params}`).then(response => {
+    return caches.open(`${CACHE_NAME}_${VERSION}`).then(cache => {
+      return cache.put(new Request(`/restaurant_${restaurant.id}_staticmap`), response);
+    });
+  }).catch(() => {
+    return;
+  });
+}
+
+// self.addEventListener('message', function (event) {
+//   if (event.data.action === 'staticmap') {
+//     event.waitUntil(cacheStaticMap(event.data.restaurant));
+//   }
+// });
