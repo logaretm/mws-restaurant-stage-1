@@ -157,7 +157,7 @@ createReviewHTML = (review) => {
   const header = document.createElement('div');
   header.className = 'review__item__header';
 
-  const name = document.createElement('h2');
+  const name = document.createElement('h3');
   name.innerHTML = review.name;
   header.appendChild(name);
 
