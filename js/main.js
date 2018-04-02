@@ -149,7 +149,7 @@ createRestaurantHTML = (restaurant) => {
   const body = document.createElement('div');
   body.className = "restaurant__card__body";
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
   body.append(name);
 
