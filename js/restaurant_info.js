@@ -50,7 +50,7 @@ window.initMap = () => {
   //     action: 'staticmap',
   //     restaurant
   //   });
-  // });
+  });
 }
 
 /**
