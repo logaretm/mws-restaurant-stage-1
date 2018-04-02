@@ -183,7 +183,7 @@ nav h1 a {
   padding: 0;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   margin-top: 0px;
   margin-bottom: 0px;
 }
