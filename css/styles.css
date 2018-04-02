@@ -13,34 +13,46 @@ body,td,th,p{
 	color: #333;
 	line-height: 1.5;
 }
+
 body {
 	background-color: #fdfdfd;
 	margin: 0;
   position:relative;
-  overflow-x: hidden;
 }
+
 ul, li {
 	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 	font-size: 10pt;
 	color: #333;
 }
+
 a {
 	color: orange;
-	text-decoration: none;
+  text-decoration: none;
+  padding: 1.5em;
 }
+
 a:hover, a:focus {
 	color: #3397db;
 	text-decoration: none;
 }
+
 a img{
 	border: none 0px #fff;
 }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   margin: 0 0 20px;
 }
+
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
+}
+
+/* Catch all for elements */
+img, embed, object, video {
+  max-width: 100%;
 }
 
 #maincontent {
@@ -58,6 +70,9 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   text-transform: uppercase;
 }
 
+.footer a {
+  padding: 0px;
+}
 
 /* ====================== Navigation ====================== */
 nav {
@@ -80,11 +95,12 @@ nav h1 a {
   text-transform: uppercase;
 }
 #breadcrumb {
-    padding: 10px 40px 16px;
-    list-style: none;
-    background-color: #eee;
-    font-size: 17px;
-    margin: 0;
+  padding: 10px 40px 16px;
+  list-style: none;
+  background-color: #eee;
+  font-size: 17px;
+  margin: 0;
+  width: 50%;
 }
 
 /* Display list items side by side */
@@ -189,7 +205,6 @@ nav h1 a {
   margin: 0;
   max-width: 100%;
   min-height: 248px;
-  min-width: 100%;
 }
 
 .restaurant__card__body {
@@ -256,7 +271,7 @@ nav h1 a {
 .footer {
   bottom: 0;
   position: absolute;
-  width: calc(50% - 80px);
+  width: 50%;
 }
 
 .main__container {
@@ -384,9 +399,6 @@ nav h1 a {
 
 
 @media only screen and (min-width: 1200px) {
-  #breadcrumb {
-    width: calc(50% - 80px);
-  }
 
   .restaurant__card {
     flex-basis: 16.66666667%;
@@ -409,9 +421,6 @@ nav h1 a {
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
-  #breadcrumb {
-    width: calc(50% - 80px);
-  }
 
   .restaurant__card {
     flex-basis: 33.33333333%;
